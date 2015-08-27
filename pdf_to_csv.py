@@ -15,9 +15,10 @@ print 'pdf has been downloaded.'
 pdf_obj = open(new_pdf_filename, 'rb')
 pdf_reader = PyPDF2.PdfFileReader(pdf_obj)
 print 'Number of pages: %d' % (pdf_reader.numPages)
-
-# TODO: Extract the tabular data
+pages = []
 for i in range(pdf_reader.numPages):
-	nextObj = pdf_reader.getPage(i)
-	nextText = nextObj.extractText()
-	print nextText
+	nextPgObj = pdf_reader.getPage(i)
+	pages.append(nextPgObj.extractText())
+
+f = open("new_file.txt", "w")
+f.write(str(pages))
