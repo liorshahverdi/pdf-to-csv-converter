@@ -17,3 +17,7 @@ pdf_reader = PyPDF2.PdfFileReader(pdf_obj)
 print 'Number of pages: %d' % (pdf_reader.numPages)
 
 # TODO: Extract the tabular data
+for i in range(pdf_reader.numPages):
+	nextObj = pdf_reader.getPage(i)
+	nextText = nextObj.extractText()
+	print nextText
