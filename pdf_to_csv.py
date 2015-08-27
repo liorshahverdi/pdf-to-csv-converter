@@ -19,6 +19,4 @@ pages = []
 for i in range(pdf_reader.numPages):
 	nextPgObj = pdf_reader.getPage(i)
 	pages.append(nextPgObj.extractText())
-
-f = open("new_file.txt", "w")
-f.write(str(pages))
+print pages
